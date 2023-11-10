@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media screen and (min-width: 580px) {
+	.cv {
+		@apply flex flex-wrap;
+	}
+
+	.side {
+		flex: 3;
+		@apply rounded-bl-xl;
+	}
+
+	.side,
+	.photo img {
+		@apply rounded-tl-xl;
+	}
+
+	.main {
+		flex: 5;
+		@apply rounded-tr-xl;
+		@apply rounded-br-xl;
+	}
+}
+
+@media screen and (max-width: 579px){
+	.side,
+	.photo img {
+		@apply rounded-tr-xl;
+		@apply rounded-tl-xl;
+	}
+
+	.main {
+		@apply rounded-br-xl;
+		@apply rounded-bl-xl;
+	}
+}
+
+:root {
+	@apply bg-stone-800;
+}
+
+.root {
+	margin: 0;
+}
+
+.header {
+	@apply flex items-center justify-between;
+	@apply sticky top-0 left-0;
+	z-index: 2;
+}
+
+h1, h2, h3 {
+	margin: 0;
+	@apply font-extrabold;
+	@apply p-0;
+}
+
+.title {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.title h3 {
+	@apply text-left uppercase font-bold;
+	@apply text-slate-800;
+	@apply border-solid;
+	@apply border-b-2;
+	@apply border-slate-500;
+	font-size: 1.3em;
+	flex: 1;
+}
+
+/* .side, .main { */
+/* 	width: 100%; */
+/* } */
+
+.photo img {
+	object-fit: cover;
+	width: 100%;
+	aspect-ratio: 1 / 1;
+}
+
+.photo form {
+	@apply bottom-2 right-2;
+	@apply bg-cyan-600;
+	z-index: 1;
+}
+
+button.edit-btn, .header button {
+	margin: 0;
+	padding: 10px;
+	display: flex;
+	justify-items: center;
+	align-items: center;
+}
+
+button img {
+	width: 22px;
+	height: 22px;
+	object-fit: cover;
+}
+
+form {
+	@apply rounded-md;
+	@apply p-2;
+	@apply m-1;
+}
+
+form > div,
+form label {
+	@apply flex;
+	flex: 1;
+}
+
+.dates > div {
+	flex: 1;
+}
+
+input:not([type="submit"]), textarea, select {
+	width: 100%;
+	@apply p-2.5 m-2;
+	@apply rounded-md;
+	@apply text-white;
+	outline: none;
+	border: none;
+	flex: 1;
+}
+
+.side input:not([type="submit"]),
+.side textarea,
+.side select {
+	@apply bg-cyan-700;
+	@apply placeholder-cyan-900;
+}
+
+.main input:not([type="submit"]),
+.main textarea,
+.main select {
+	@apply bg-gray-200 text-slate-700;
+	@apply placeholder-gray-400;
+}
+
+input[type=submit] {
+	@apply px-7 py-2.5;
+	@apply text-white;
+	@apply text-cyan-300;
+	@apply bg-cyan-900;
+	@apply m-3 font-bold;
+}
+
+button.edit-btn, input[type=submit] {
+	border: none;
+	font-size: 16px;
+	letter-spacing: 0.6px;
+	font-family: sans-serif;
+	text-transform: capitalize;
+	@apply rounded-full;
+}
