@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import '/src/styles/index.css'
-import settingsIcon from '/src/assets/icons/settings.svg'
 import Photo from '/src/components/Photo.jsx'
 import Intro from '/src/components/Intro.jsx'
 import Profile from '/src/components/Profile.jsx'
@@ -10,7 +9,7 @@ import Education from '/src/components/Education.jsx'
 import Experience from '/src/components/Experience.jsx'
 import Skills from '/src/components/Skills.jsx'
 import Reference from '/src/components/Reference.jsx'
-import SettingsButton from './components/SettingsButton'
+import SettingsButton from '/src/components/SettingsButton.jsx'
 
 export default function App() {
 	const [activeSection, setActiveSection] = useState('')
@@ -28,11 +27,11 @@ export default function App() {
 
   return (
     <div className="bg-stone-800 font-sans">
-			<div className="header bg-cyan-700 py-2 px-3 text-black">
-				<h1 className="text-3xl text-white">CV Builder</h1>
+			<div className="header bg-cyan-700 p-3">
+				<h1 className="text-3xl text-white">CV Build</h1>
 				<SettingsButton onClick={toggleEditStatus} />
 			</div>
-			<div className="cv text-center px-2 mx-1 my-4 rounded-md">
+			<div className="cv text-center m-3 rounded-md shadow-lg shadow-stone-900">
 				<div className="side p-0 pb-5 m-0 bg-cyan-600">
 					<Photo editEnabled={editEnabled}/>
 					<Intro
@@ -64,7 +63,7 @@ export default function App() {
 						className='social-media'
 					/>
 				</div>
-				<div className='main p-0 py-5 m-0 bg-gray-300'>
+				<div className='main p-0 py-3 m-0 bg-gray-300'>
 					<Education
 						editEnabled={editEnabled}
 						active={activeSection === 'education'}

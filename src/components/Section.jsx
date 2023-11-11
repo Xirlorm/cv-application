@@ -6,7 +6,7 @@ export default function Section(props) {
 	}
 	
 	return (
-		<div className={`${props.className} p-2 my-2 mx-3`}>
+		<div className={`section ${props.className} p-2 my-2 mx-2 h-auto`}>
 			<div className="title">
 				{
 					(props.section === 'intro')

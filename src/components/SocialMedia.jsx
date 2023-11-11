@@ -11,7 +11,7 @@ export default function SocialMedia(props) {
 	function onSubmit(e) {
 		e.preventDefault()
 
-		if (!(platform.trim() || username.trim())) {
+		if (!(platform || username)) {
 			props.setActiveSection('')
 			return
 		}
@@ -40,7 +40,7 @@ export default function SocialMedia(props) {
 			section={props.section}
 			className={props.className}
 		>
-			<div className="content my-3 px-4">
+			<div className="content">
 				<SocialHandleList
 					socialHandles={socialHandles}
 					setSocialHandles={setSocialHandles}

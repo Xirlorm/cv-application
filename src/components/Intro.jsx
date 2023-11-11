@@ -18,8 +18,8 @@ export default function Intro(props) {
 			setActiveSection={props.setActiveSection}
 			className={props.className}
 		>
-			<div className='field-content text-stone-800 m-1'>
-				<h1 className="text-3xl font-bold">{fullName}</h1>
+			<div className='content'>
+				<h1 className="text-2xl font-bold">{fullName}</h1>
 				<h3 className="text-xl font-bold">{occupation}</h3>
 			</div>
 			<form onSubmit={onSubmit} className={props.active ? '' : 'hidden'}>

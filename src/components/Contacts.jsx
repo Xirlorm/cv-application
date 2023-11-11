@@ -20,7 +20,7 @@ function Contacts(props) {
 	const onSubmit = (e) => {
 		e.preventDefault()
 
-		if (contactValue === '') return
+		if (!contactValue) return
 
 		setContactList((list) => {
 			let newList = {}
@@ -57,7 +57,7 @@ function Contacts(props) {
 			section={props.section}
 			setActiveSection={props.setActiveSection}
 		>
-			<div className="content px-4">
+			<div className="content">
 				<ContactsList list={contactList} setList={setContactList} listIndex={contactKindList} />
 			</div>
 			<form onSubmit={onSubmit} className={props.active ? '' : 'hidden'}>
@@ -88,7 +88,7 @@ function Contacts(props) {
 									contactKind
 								)
 							}
-							onChange={(e) => setContactValue(e.target.value.trim())}
+							onChange={(e) => setContactValue(e.target.value)}
 							value={contactValue}
 						/>
 					</label>

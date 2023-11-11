@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Section from "./Section"
+import CloseButton from './CloseButton'
 
 export default function Experience(props) {
 	const [company, setCompany] = useState('')
@@ -49,15 +50,18 @@ export default function Experience(props) {
 					{
 						experiences.map(item => {
 							return (
-								<li key={item.id}>
-									<div>
-										<div className="from">{item.beginDate}</div>
-										<div className="to">{item.endDate}</div>
+								<li key={item.id} className='flex p-0.5 my-0.5 mx-2 items-center'>
+									<div className='text-cyan-600 font-bold italic px-1 py-0'>
+										<div className="from border-cyan-500 border-b-2 m-0 py-1">{item.beginDate}</div>
+										<div className="to m-0 py-1">{item.endDate}</div>
 									</div>
-									<div>
-										<h3 className="company">{item.company}</h3>
-										<div className="position">{item.position}</div>
-										<div className="duties">{item.duties}</div>
+									<div className="flex-1 border-l-2 my-0.5 px-1 border-cyan-500 ml-3 font-bold">
+										<div className='text-right p-0 m-0'>
+											<CloseButton onClick={() => {}} isActive={props.active}/>
+										</div>
+										<h3 className="company font-bold m-0 text-xl py-0.5">{item.company}</h3>
+										<div className="position font-bold m-0 py-0.5 italic">{item.position}</div>
+										<div className="duties font-bold m-0 py-0.5 italic">{item.duties}</div>
 									</div>
 								</li>
 							)
@@ -100,7 +104,7 @@ export default function Experience(props) {
 					</label>
 				</div>
 				<div className='dates flex flex-wrap'>
-					<div>
+					<div className='flex-1'>
 						<div className='text-center'>From</div>
 						<label htmlFor="begin-date">
 							<input
@@ -112,7 +116,7 @@ export default function Experience(props) {
 							/>
 						</label>		
 					</div>	
-					<div>
+					<div className='flex-1'>
 						<div className='text-center'>To</div>
 						<label htmlFor="end-date">
 							<input

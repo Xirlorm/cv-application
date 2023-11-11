@@ -10,13 +10,14 @@ function ContactsList({list, setList, listIndex}) {
 
 				return (
 					<Fragment key={kind.text}>
-						<h3 className="text-left text-xl text-slate-700 font-bold flex items-center">
-							<img src={kind.icon} className="p-0 m-0 w-5 h-5" />&nbsp;{kind.text}
+						<h3 className="text-left text-xl font-bold items-center">
+							<img src={kind.icon} className="inline p-0 m-0 w-4 h-4" />
+							&nbsp;{kind.text}
 						</h3>
-						<ul>
+						<ul className="text-right font-bold italic">
 							{
 								list[kind.text].map(({value, id}) => {
-									return <li id={id} className="text-slate-700 text-right font-bold italic">{value}</li>
+									return <li id={id}>{value}</li>
 								})
 							}
 						</ul>

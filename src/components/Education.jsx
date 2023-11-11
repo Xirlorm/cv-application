@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Section from './Section'
+import CloseButton from './CloseButton'
 
 export default function Education(props) {
 	const [school, setSchool] = useState('')
@@ -36,14 +37,17 @@ export default function Education(props) {
 			<div className="content">
 				<ul>
 					{
-						education.map(item => <li key={item.id}>
-								<div>
-									<div className="from">From: {item.beginDate}</div>
-									<div className="to">To: {item.endDate}</div>
+						education.map(item => <li key={item.id} className='flex p-0.5 my-0.5 mx-2 items-center'>
+								<div className='text-cyan-600 font-bold italic px-1 py-0'	>
+									<div className="from border-cyan-500 border-b-2 m-0 py-1">{item.beginDate}</div>
+									<div className="to m-0 py-1">{item.endDate}</div>
 								</div>
-								<div>
-									<div className="school">{item.school}</div>
-									<div className="course">{item.course}</div>
+								<div className="flex-1 border-l-2 my-0.5 px-1 border-cyan-500 ml-3 font-bold">
+									<div className='text-right p-0 m-0'>
+										<CloseButton onClick={() => {}} isActive={props.active}/>
+									</div>
+									<h3 className="school m-0 py-0.5 text-xl">{item.school}</h3>
+									<div className="course m-0 py-0.5 italic">{item.course}</div>
 								</div>
 							</li>
 						)
@@ -74,7 +78,7 @@ export default function Education(props) {
 					</label>		
 				</div>	
 				<div className='dates flex flex-wrap'>
-					<div>
+					<div className='flex-1'>
 						<div className='text-center'>From</div>
 						<label htmlFor="begin-date">
 							<input
@@ -86,7 +90,7 @@ export default function Education(props) {
 							/>
 						</label>		
 					</div>	
-					<div>
+					<div className='flex-1'>
 						<div className='text-center'>To</div>
 						<label htmlFor="end-date">
 							<input

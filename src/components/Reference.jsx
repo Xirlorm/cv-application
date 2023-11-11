@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Section from "./Section"
+import CloseButton from "./CloseButton"
 
 export default function Reference(props) {
 	const [fullName, setFullName] = useState('')
@@ -34,15 +35,26 @@ export default function Reference(props) {
 			section={props.section}
 		>
 			<div className="content">
-				<ul>
+				<ul className="flex flex-wrap">
 					{
 						references.map(item => {
 							return (
-								<li key={item.id}>
-									<div className="fullname">{item.fullName}</div>
-									<div className="comment">{item.comment}</div>
-									<div className="telephone">{item.telephone}</div>
-									<div className="email">{item.email}</div>
+								<li key={item.id} className="flex-1 text-capitalize text-justify m-2">
+									<div className='text-right p-0 m-0'>
+										<CloseButton onClick={() => {}} isActive={props.active}/>
+									</div>
+									<div className="fullname text-lg font-bold">{item.fullName}</div>
+									{
+										item.comment
+										? <div className="comment italic">{item.comment}</div>
+										: undefined
+									}
+									<div className="telephone flex">
+										<h3 className="font-bold">Phone:&nbsp;</h3> {item.telephone}
+									</div>
+									<div className="email flex">
+										<h3 className="font-bold">Email:&nbsp;</h3> {item.email}
+									</div>
 								</li>
 							)
 						})

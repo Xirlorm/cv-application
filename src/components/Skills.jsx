@@ -34,23 +34,21 @@ export default function Skills(props) {
 			setActiveSection={props.setActiveSection}
 			section={props.section}
 		>
-			<div className="content my-3">
-				<ul>
-					{skillList.map(skill => {
-						return (
-							<li
-								key={skill.id}
-								className="text-l text-slate-700 mx-2 my-0 py-0 flex flex-wrap items-center justify-around"
-							>
-								<div className='text-left font-bold m-0 py-0 px-2 flex-1'>{skill.value}</div>
-								<CloseButton
-									isActive={props.active}
-									onClick={() => removeSkill(skill.id)}
-								/>
-							</li>
-						)
-					})}
-				</ul>
+			<div className="content">
+				{skillList.map(skill => {
+					return (
+						<li
+							key={skill.id}
+							className="text-l mx-2 my-0 py-0 flex flex-wrap items-center justify-around"
+						>
+							<div className='text-left font-bold m-0 py-0 px-2 flex-1'>{skill.value}</div>
+							<CloseButton
+								isActive={props.active}
+								onClick={() => removeSkill(skill.id)}
+							/>
+						</li>
+					)
+				})}
 			</div>
 			<form className={props.active ? '' : 'hidden'} onSubmit={addSkill}>
 				<div>
@@ -65,7 +63,7 @@ export default function Skills(props) {
 						/>
 					</label>
 				</div>
-				<input type="submit" value={"Done"} />
+				<input type="submit" value="Add" />
 			</form>
 		</Section>
 	)
