@@ -8,6 +8,7 @@ export default function Reference(props) {
 	const [telephone, setTelephone] = useState('')
 	const [email, setEmail] = useState('')
 	const [references, setReferences] = useState([])
+	const [id, setId] = useState(23.317)
 
 	const addRef = (e) => {
 		e.preventDefault()
@@ -17,13 +18,18 @@ export default function Reference(props) {
 
 		setReferences((list) => [
 			...(list.map(item => ({...item}))),
-			{fullName, comment, telephone, email},
+			{fullName, comment, telephone, email, id},
 		])
 
 		setFullName('')
 		setComment('')
 		setTelephone('')
 		setEmail('')
+		setId(id => id + 83.207)
+	}
+
+	const removeReference = (id) => {
+		setReferences(list => list.filter(ref => ref.id !== id))
 	}
 
 	return (
@@ -41,7 +47,7 @@ export default function Reference(props) {
 							return (
 								<li key={item.id} className="flex-1 text-capitalize text-justify m-2">
 									<div className='text-right p-0 m-0'>
-										<CloseButton onClick={() => {}} isActive={props.active}/>
+										<CloseButton onClick={() => removeReference(item.id)} isActive={props.active}/>
 									</div>
 									<div className="fullname text-lg font-bold">{item.fullName}</div>
 									{

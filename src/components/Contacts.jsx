@@ -10,6 +10,7 @@ function Contacts(props) {
 	const [contactKind, setContactKind] = useState('text')
 	const [contactValue, setContactValue] = useState('')
 	const [contactList, setContactList] = useState({})
+	const [id, setId] = useState(982.397)
 	const contactKindList = [
 		{value: 'text', text: 'Address', icon: AddressIcon},
 		{value: 'tel', text: 'Telephone', icon: PhoneIcon},
@@ -37,7 +38,7 @@ function Contacts(props) {
 
 					newList[kind.text].push({
 						value: contactValue,
-						id: newList[kind.text].length,
+						id
 					})
 				}
 			}
@@ -46,6 +47,7 @@ function Contacts(props) {
 		})
 
 		setContactValue('')
+		setId(id => id +  29.133)
 		// props.setActiveSection('')
 	}
 
@@ -58,7 +60,12 @@ function Contacts(props) {
 			setActiveSection={props.setActiveSection}
 		>
 			<div className="content">
-				<ContactsList list={contactList} setList={setContactList} listIndex={contactKindList} />
+				<ContactsList
+					list={contactList}
+					setList={setContactList}
+					listIndex={contactKindList}
+					isActive={props.active}
+				/>
 			</div>
 			<form onSubmit={onSubmit} className={props.active ? '' : 'hidden'}>
 				<div>

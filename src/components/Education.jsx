@@ -8,6 +8,7 @@ export default function Education(props) {
 	const [beginDate, setBeginDate] = useState('')
 	const [endDate, setEndDate] = useState('')
 	const [education, setEducation] = useState([])
+	const [id, setId] = useState(982.397)
 
 	const addEducation = (e) => {
 		e.preventDefault()
@@ -17,13 +18,18 @@ export default function Education(props) {
 
 		setEducation(list => [
 			...(list.map(item => ({...item}))),
-			{ school, course, beginDate, endDate },
+			{ school, course, beginDate, endDate, id},
 		])
 
 		setSchool('')
 		setCourse('')
 		setBeginDate('')
 		setEndDate('')
+		setId(id => id +  29.133)
+	}
+
+	const removeEducation = (id) => {
+		setEducation(list => list.filter(item => item.id !== id))
 	}
 
 	return (
@@ -44,7 +50,7 @@ export default function Education(props) {
 								</div>
 								<div className="flex-1 border-l-2 my-0.5 px-1 border-cyan-500 ml-3 font-bold">
 									<div className='text-right p-0 m-0'>
-										<CloseButton onClick={() => {}} isActive={props.active}/>
+										<CloseButton onClick={() => removeEducation(item.id)} isActive={props.active}/>
 									</div>
 									<h3 className="school m-0 py-0.5 text-xl">{item.school}</h3>
 									<div className="course m-0 py-0.5 italic">{item.course}</div>

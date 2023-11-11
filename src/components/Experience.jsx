@@ -37,6 +37,10 @@ export default function Experience(props) {
 		setId(id => id +  29.133)
 	}
 
+	const removeExperience = (id) => {
+		setExperiences(list => list.filter(item => item.id !== id))
+	}
+
 	return (
 		<Section
 			className={props.className}
@@ -57,7 +61,7 @@ export default function Experience(props) {
 									</div>
 									<div className="flex-1 border-l-2 my-0.5 px-1 border-cyan-500 ml-3 font-bold">
 										<div className='text-right p-0 m-0'>
-											<CloseButton onClick={() => {}} isActive={props.active}/>
+											<CloseButton onClick={() => removeExperience(item.id)} isActive={props.active}/>
 										</div>
 										<h3 className="company font-bold m-0 text-xl py-0.5">{item.company}</h3>
 										<div className="position font-bold m-0 py-0.5 italic">{item.position}</div>
