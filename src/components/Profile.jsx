@@ -17,7 +17,7 @@ export default function Profile(props) {
 			section={props.section}
 			setActiveSection={props.setActiveSection}
 		>
-			<div className='content text-justify'>{profile}</div>
+			<div className='content text-justify font-bold'>{profile}</div>
 			<form onSubmit={onSubmit} className={props.active ? '' : 'hidden'}>
 				<div>
 					<label htmlFor="profile">
