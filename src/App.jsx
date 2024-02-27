@@ -26,13 +26,15 @@ export default function App() {
 	}
 
   return (
-    <div className="bg-stone-800 font-sans">
-			<div className="header bg-cyan-700 p-3">
-				<h1 className="text-3xl text-white">CV Build</h1>
-				<SettingsButton onClick={toggleEditStatus} />
+    <div className="bg-teal-700 p-1 font-sans">
+			<div className="header p-3 -m-1">
+				<h1 className="text-3xl font-bolder text-white">&lt;/CV Build&gt;</h1>
+				<SettingsButton
+					onClick={toggleEditStatus}
+				/>
 			</div>
-			<div className="cv text-center m-3 rounded-md shadow-lg shadow-stone-900">
-				<div className="side p-0 pb-5 m-0 bg-cyan-600">
+			<div className="cv text-center m-3 rounded-xl shadow-lg shadow-stone-900">
+				<div className="side p-0 pb-5 m-0 bg-blue-400">
 					<Photo editEnabled={editEnabled}/>
 					<Intro
 						editEnabled={editEnabled}

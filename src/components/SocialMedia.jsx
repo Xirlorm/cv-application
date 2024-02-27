@@ -56,6 +56,7 @@ export default function SocialMedia(props) {
 							placeholder="Platform"
 							value={platform}
 							onChange={(e) => setPlatform(e.target.value)}
+							required
 						/>
 					</label>
 				</div>
@@ -67,6 +68,7 @@ export default function SocialMedia(props) {
 							placeholder="Username"
 							value={username}
 							onChange={(e) => setUsername(e.target.value)}
+							required
 						/>
 					</label>
 				</div>

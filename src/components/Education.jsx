@@ -60,7 +60,7 @@ export default function Education(props) {
 					}
 				</ul>
 			</div>
-			<form onSubmit={addEducation} className={props.active ? '' : 'hidden'}>
+			<form onSubmit={addEducation} className={props.active ? 'flex flex-col items-center' : 'hidden'}>
 				<div>
 					<label htmlFor="school">
 						<input
@@ -69,6 +69,7 @@ export default function Education(props) {
 							placeholder='School'
 							onChange={(e) => setSchool(e.target.value)}
 							value={school}
+							required	
 						/>
 					</label>		
 				</div>	
@@ -80,31 +81,30 @@ export default function Education(props) {
 							placeholder='Study/Course'
 							onChange={(e) => setCourse(e.target.value)}
 							value={course}
+							required
 						/>
 					</label>		
 				</div>	
-				<div className='dates flex flex-wrap'>
-					<div className='flex-1'>
+				<div>
+					<div>
 						<div className='text-center'>From</div>
 						<label htmlFor="begin-date">
 							<input
-								type="number"
+								type="date"
 								id='begin-date'
 								onChange={(e) => setBeginDate(e.target.value)}
 								value={beginDate}
-								min={1900}
 							/>
 						</label>		
 					</div>	
-					<div className='flex-1'>
+					<div>
 						<div className='text-center'>To</div>
 						<label htmlFor="end-date">
 							<input
-								type="number"
+								type="date"
 								id='end-date'
 								onChange={(e) => setEndDate(e.target.value)}
 								value={endDate}
-								min={1900}
 							/>
 						</label>		
 					</div>	

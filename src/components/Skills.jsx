@@ -50,7 +50,7 @@ export default function Skills(props) {
 					)
 				})}
 			</div>
-			<form className={props.active ? '' : 'hidden'} onSubmit={addSkill}>
+			<form className={props.active ? 'flex flex-col items-center' : 'hidden'} onSubmit={addSkill}>
 				<div>
 					<label htmlFor="skill-input">
 						<input

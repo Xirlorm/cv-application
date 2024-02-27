@@ -67,7 +67,9 @@ export default function Reference(props) {
 					}
 				</ul>
 			</div>
-			<form className={props.active ? '' : 'hidden'} onSubmit={addRef}>
+			<form className={props.active ? 'flex flex-col items-center' : 'hidden'}
+				onSubmit={addRef}
+			>
 				<div>
 					<label htmlFor="full-name">
 						<input 

@@ -73,7 +73,7 @@ export default function Experience(props) {
 					}
 				</ul>
 			</div>
-			<form onSubmit={addExperience} className={props.active ? '' : 'hidden'}>
+			<form onSubmit={addExperience} className={props.active ? 'flex flex-col items-center' : 'hidden'}>
 				<div>
 					<label htmlFor="company">
 						<input
@@ -107,12 +107,12 @@ export default function Experience(props) {
 						/>
 					</label>
 				</div>
-				<div className='dates flex flex-wrap'>
-					<div className='flex-1'>
+				<div className='dates'>
+					<div className=''>
 						<div className='text-center'>From</div>
 						<label htmlFor="begin-date">
 							<input
-								type="number"
+								type="date"
 								id='begin-date'
 								onChange={(e) => setBeginDate(e.target.value)}
 								value={beginDate}
@@ -120,15 +120,14 @@ export default function Experience(props) {
 							/>
 						</label>		
 					</div>	
-					<div className='flex-1'>
+					<div className=''>
 						<div className='text-center'>To</div>
 						<label htmlFor="end-date">
 							<input
-								type="number"
+								type="date"
 								id='end-date'
 								onChange={(e) => setEndDate(e.target.value)}
 								value={endDate}
-								min={1900}
 							/>
 						</label>		
 					</div>	
